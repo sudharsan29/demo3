@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import React, { useState} from 'react';
 import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Nav from './Nav'
+ class App extends React.Component{
+  constructor() {
+  super()
+  this.state={
+    show:true
+  }
+    console.warn("constructor");
+  }
+componentDidMount()
+{
+  console.warn("componentDidMount");
 }
+render()
+ {
+  console.warn("render");
+  return (
+    <div>
+     <h1>hii </h1>
+     {
+      this.state.show ?
+      <Nav />
+      :null
+     }
+     <button onClick={()=>{this.setState({show:!this.state.show})}}> toggle navbar</button>
+      </div>
+  )
+}
+}
+
 
 export default App;
